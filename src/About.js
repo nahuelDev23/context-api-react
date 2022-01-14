@@ -2,7 +2,7 @@ import React from 'react'
 import { useTask } from './context/character/CharacterContext'
 
 export const About = () => {
-    const { state, dispatch } = useTask()
+    const { state } = useTask()
     return (
         <div>
             {state.characters && state.characters.map(el => (

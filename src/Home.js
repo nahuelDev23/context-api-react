@@ -5,7 +5,6 @@ import { Form } from './components/Form';
 import { useTask } from './context/character/CharacterContext';
 import { fetchApi } from './utils/fetchApi';
 
-
 export const Home = () => {
   const { state, dispatch } = useTask()
 
