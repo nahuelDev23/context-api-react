@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTask } from './context/character/CharacterContext'
+import { useTask } from '../context/character/CharacterContext'
 
 export const About = () => {
     const { state } = useTask()

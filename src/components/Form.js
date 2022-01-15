@@ -1,37 +1,39 @@
-import React, { useState } from 'react'
-import { handleAddCharacters } from '../action/character/actionCharacter'
+import React, { useEffect, useState } from 'react'
+import { handleAddCharacters, handleEditCharacters } from '../action/character/actionCharacter'
 import { useTask } from '../context/character/CharacterContext'
 
-export const Form = () => {
-    const { state, dispatch } = useTask()
+export const Form = ({ setShowModal, newChar = true, initState = { id: '', name: '' } }) => {
 
-    const initState = {
-        name:''
-    }
+    const { dispatch } = useTask()
 
-    const [value, setValue] = useState(initState)
+    const [formValue, setFormValue] = useState(initState)
 
-    const {name} = value
+    const { name } = formValue
 
     const handleChange = ({ target }) => {
         const { value, name } = target
-        setValue({
+        setFormValue({
             [name]: value
         })
-        
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch(handleAddCharacters(value))
-        console.log(state);
+        formValue.id = initState.id
+        newChar ? dispatch(handleAddCharacters(formValue)) : dispatch(handleEditCharacters(formValue))
+        setShowModal(false)
     }
+
+
+    useEffect(() => {
+        setFormValue(initState)
+    }, [initState])
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="name" onChange={handleChange} value={name} />
-                <button>Guardar</button>
+                <button>{newChar ? 'Guardar' : 'Editar'}</button>
             </form>
         </div>
     )
