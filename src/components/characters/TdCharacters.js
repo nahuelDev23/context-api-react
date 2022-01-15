@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { handleDeleteCharacters } from '../../action/character/actionCharacter'
 import { useTask } from '../../context/character/CharacterContext'
 import { Button } from '../ui/Button'
@@ -22,7 +22,7 @@ export const TdCharacters = ({ character, handleGetOne }) => {
                 {name}
             </td>
             <td>
-                <Button txt='Eliminar' action={(e) => handleDelete(id)} />
+                <Button txt='Elimiar' action={(e) => handleDelete(id)} />
                 <Button txt='Editar' action={(e) => handleGetOne(id)} />
             </td>
         </tr>

@@ -54,6 +54,7 @@ export const TableCharacters = ({ setLoading }) => {
                     ))}
                 </tbody>
             </table>
+            
         </>
     )
 }

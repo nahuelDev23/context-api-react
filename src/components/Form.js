@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { handleAddCharacters, handleEditCharacters } from '../action/character/actionCharacter'
 import { useTask } from '../context/character/CharacterContext'
-
+import './form.css'
 export const Form = ({ setShowModal, newChar = true, initState = { id: '', name: '' } }) => {
 
     const { dispatch } = useTask()
@@ -30,10 +30,10 @@ export const Form = ({ setShowModal, newChar = true, initState = { id: '', name:
     }, [initState])
 
     return (
-        <div>
+        <div className='form'>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="name" onChange={handleChange} value={name} />
-                <button>{newChar ? 'Guardar' : 'Editar'}</button>
+                <button className='ml-4'>{newChar ? 'Guardar' : 'Editar'}</button>
             </form>
         </div>
     )

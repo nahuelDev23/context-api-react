@@ -1,0 +1,23 @@
+.center {
+    text-align: center;
+}
+
+.mt {
+    margin-top: 1rem;
+}
+
+.nav-button {
+    background: #000;
+    padding: .5rem;
+    border-radius: 4px;
+}
+
+.nav-button:first-child {
+    margin-right: 1rem;
+}
+
+/* No usar etiquetas en css , es una mala practica , no hagan esto en casa */
+.nav-button>a {
+    text-decoration: none;
+    color: white
+}
