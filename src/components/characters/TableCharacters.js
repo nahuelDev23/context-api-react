@@ -32,7 +32,6 @@ export const TableCharacters = ({ setLoading }) => {
         setShowModal(true)
     }
 
-
     useEffect(() => {
         fetchCharacter()
     }, [fetchCharacter])
